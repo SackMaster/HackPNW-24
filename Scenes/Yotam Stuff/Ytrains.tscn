@@ -14,5 +14,3 @@ script = ExtResource("2_ulnwv")
 
 [node name="Ispawner" type="Node2D" parent="."]
 script = ExtResource("3_yp506")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
