@@ -34,15 +34,18 @@ func _ready():
 	#10
 	curAns = [Answer.new("100", true), Answer.new("60", false), Answer.new("10", false), Answer.new("50", false)]
 	queList.push_back(Question.new("How many cents are in a dollar?", curAns))
-	
-	print(queList)
+	_instances()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _instances():
 	if (not queList.is_empty()):
 		var curQue = queList.pick_random()
 		queList.erase(curQue)
 		curQue.answers.shuffle()
 		
+		print(curQue.problem)
 		for ans in curQue.answers:
+			print(ans.text)
 			await get_tree().create_timer(0.5).timeout
+		
+		_instances()
