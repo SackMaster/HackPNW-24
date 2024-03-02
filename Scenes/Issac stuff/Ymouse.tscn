@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dro345j5g8yoy"]
+
+[ext_resource type="Texture2D" uid="uid://ck4d27nvvm3qc" path="res://Scenes/Issac stuff/YMouseObject.png" id="1_kcjvd"]
+[ext_resource type="Script" path="res://Scenes/Issac stuff/YMouseScript.gd" id="2_5hyw4"]
+
+[node name="Ymouse" type="Node2D"]
+
+[node name="YMouse" type="RigidBody2D" parent="."]
+script = ExtResource("2_5hyw4")
+
+[node name="YMouseCollision" type="CollisionShape2D" parent="YMouse"]
+position = Vector2(-7.62939e-06, 0)
+
+[node name="YMouseObject" type="Sprite2D" parent="YMouse/YMouseCollision"]
+position = Vector2(92, 296)
+scale = Vector2(0.158889, 0.224)
+texture = ExtResource("1_kcjvd")
