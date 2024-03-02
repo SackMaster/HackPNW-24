@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://bqknx61gkorr0"]
+[gd_scene load_steps=4 format=3 uid="uid://bqknx61gkorr0"]
+
+[ext_resource type="Script" path="res://Scenes/Yotam Stuff/Iquestions.gd" id="1_7v2pg"]
+[ext_resource type="Script" path="res://Scenes/Yotam Stuff/Ianswers.gd" id="2_ulnwv"]
+[ext_resource type="Script" path="res://Scenes/Yotam Stuff/Ispawner.gd" id="3_yp506"]
 
 [node name="Ytrains" type="Node2D"]
+
+[node name="Iquestions" type="Node2D" parent="."]
+script = ExtResource("1_7v2pg")
+
+[node name="Ianswers" type="Node2D" parent="."]
+script = ExtResource("2_ulnwv")
+
+[node name="Ispawner" type="Node2D" parent="."]
+script = ExtResource("3_yp506")
