@@ -13,7 +13,7 @@ func _ready():
 	queList.push_back(Question.new("It is _____ car", curAns))
 	#2
 	curAns = [Answer.new("their", true), Answer.new("they're", false), Answer.new("there", false)]
-	queList.push_back(Question.new("What is the capitol of Washington State?", curAns))
+	queList.push_back(Question.new("What is the capital of Washington State?", curAns))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
