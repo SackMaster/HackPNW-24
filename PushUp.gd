@@ -2,5 +2,5 @@ extends RigidBody2D
 
 
 # Called when the node enters the scene tree for the first time.
-func intergrate_forces():
-	
+#func intergrate_forces():
+#	for i in_range()
