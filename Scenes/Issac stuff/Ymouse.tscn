@@ -1,17 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://dro345j5g8yoy"]
+[gd_scene load_steps=4 format=3 uid="uid://dro345j5g8yoy"]
 
 [ext_resource type="Texture2D" uid="uid://ck4d27nvvm3qc" path="res://Scenes/Issac stuff/YMouseObject.png" id="1_kcjvd"]
 [ext_resource type="Script" path="res://Scenes/Issac stuff/YMouseScript.gd" id="2_5hyw4"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntmff"]
+
 [node name="Ymouse" type="Node2D"]
+position = Vector2(0, 4)
 
 [node name="YMouse" type="RigidBody2D" parent="."]
+position = Vector2(398, 257)
+rotation = -6.28319
+scale = Vector2(1, 1.36)
 script = ExtResource("2_5hyw4")
 
-[node name="YMouseCollision" type="CollisionShape2D" parent="YMouse"]
-position = Vector2(-7.62939e-06, 0)
-
-[node name="YMouseObject" type="Sprite2D" parent="YMouse/YMouseCollision"]
-position = Vector2(92, 296)
-scale = Vector2(0.158889, 0.224)
+[node name="YMouseObject" type="Sprite2D" parent="YMouse"]
+position = Vector2(1, 0)
+scale = Vector2(0.319999, 0.294117)
 texture = ExtResource("1_kcjvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YMouse"]
+scale = Vector2(3.56, 3.35294)
+shape = SubResource("RectangleShape2D_ntmff")
