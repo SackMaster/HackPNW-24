@@ -7,9 +7,3 @@ func _ready():
 	var vertFor = vert.pick_random()
 	var horFor = hor.pick_random()
 	apply_impulse(Vector2(50 * horFor, -940 + vertFor))
-	
-#func _physics_process(delta):
-	
-	
-
-
