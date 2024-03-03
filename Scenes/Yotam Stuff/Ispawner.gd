@@ -25,7 +25,7 @@ func _ready():
 	curAns = [Answer.new("is", true), Answer.new("are", false), Answer.new(", are", false), Answer.new(", is", false)]
 	queList.push_back(Question.new("The family ____ small", curAns))
 	#7
-	curAns = [Answer.new("28", true), Answer.new("42", false), Answer.new("36", false), Answer.new("38", false)]
+	curAns = [Answer.new("42", true), Answer.new("28", false), Answer.new("36", false), Answer.new("38", false)]
 	queList.push_back(Question.new("What is 14 * 3?", curAns))
 	#8
 	curAns = [Answer.new("nonagon", true), Answer.new("pentagon", false), Answer.new("octagon", false), Answer.new("decagon", false)]
@@ -59,6 +59,7 @@ func _instances():
 			var xCoor = randi() % 1200 + 325
 			var instance = scene.instantiate()
 			instance.get_node("RigidBody2D/White/Label").text = ans.text
+			instance.get_node("RigidBody2D").isCorrect = ans.isRight
 			instance.transform.origin = Vector2(xCoor, 1200)
 			add_child(instance)
 			print(ans.text)

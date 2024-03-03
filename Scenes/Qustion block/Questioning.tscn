@@ -1,46 +1,43 @@
 [gd_scene load_steps=6 format=3 uid="uid://bc2sa67w21pj5"]
 
 [ext_resource type="Script" path="res://PushUp.gd" id="1_6i7l6"]
-[ext_resource type="Texture2D" uid="uid://cjxh11qfe43cp" path="res://Scenes/Qustion block/White.png" id="2_o0dgg"]
+[ext_resource type="Texture2D" uid="uid://cjxh11qfe43cp" path="res://Scenes/Qustion block/White.png" id="2_23mrn"]
 [ext_resource type="FontFile" uid="uid://bldw4cjuv3bxh" path="res://Scenes/Yotam Stuff/georgia-grassetto.ttf" id="3_cdly2"]
 
-[sub_resource type="Theme" id="Theme_jviep"]
+[sub_resource type="Theme" id="Theme_xfjlb"]
 default_base_scale = 1.0
 default_font = ExtResource("3_cdly2")
 default_font_size = 24
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_b3uc7"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_g1tih"]
 
 [node name="Questioning" type="Node2D"]
 position = Vector2(1452, 746)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 collision_mask = 2
+input_pickable = true
 gravity_scale = 0.5
 script = ExtResource("1_6i7l6")
 
 [node name="White" type="Sprite2D" parent="RigidBody2D"]
-position = Vector2(1, -2)
-texture = ExtResource("2_o0dgg")
+texture = ExtResource("2_23mrn")
 
 [node name="Label" type="Label" parent="RigidBody2D/White"]
-modulate = Color(0, 0, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
 anchors_preset = -1
-anchor_left = 0.02
-anchor_top = 0.39
-anchor_right = 0.976
-anchor_bottom = 0.61
-offset_left = -146.88
-offset_top = -86.08
-offset_right = -146.944
-offset_bottom = -85.92
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_jviep")
+anchor_top = 0.314
+anchor_right = 0.997
+anchor_bottom = 0.663
+offset_left = -146.0
+offset_top = -86.008
+offset_right = -147.118
+offset_bottom = -86.036
+theme = SubResource("Theme_xfjlb")
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 scale = Vector2(14.72, 8.68)
-shape = SubResource("CircleShape2D_b3uc7")
+shape = SubResource("CircleShape2D_g1tih")
