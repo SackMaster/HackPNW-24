@@ -14,3 +14,4 @@ func _mouse_entered():
 	
 func _mouse_exited():
 	queue_free()
+#
