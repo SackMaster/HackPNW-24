@@ -1,5 +1,7 @@
 extends Node2D
 
+var scene = preload("res://Scenes/Qustion block/Questioning.tscn")
+
 var queList = []
 var curAns
 # Called when the node enters the scene tree for the first time.
@@ -37,6 +39,8 @@ func _ready():
 	_instances()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+#(151,850) (1452, 850)
+
 func _instances():
 	if (not queList.is_empty()):
 		var curQue = queList.pick_random()
@@ -45,7 +49,12 @@ func _instances():
 		
 		print(curQue.problem)
 		for ans in curQue.answers:
+			var xCoor = randi() % 1301 + 151
+			var instance = scene.instantiate()
+			instance.get_node("RigidBody2D/White/Label").text = ans.text
+			instance.transform.origin = Vector2(xCoor, 1000)
+			add_child(instance)
 			print(ans.text)
-			await get_tree().create_timer(0.5).timeout
-		
+			await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(2).timeout
 		_instances()
