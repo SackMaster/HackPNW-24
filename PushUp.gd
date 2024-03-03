@@ -1,6 +1,10 @@
 extends RigidBody2D
 
+func _ready():
+	apply_impulse(Vector2(0, -1100))
+	
+#func _physics_process(delta):
+	
+	
 
-# Called when the node enters the scene tree for the first time.
-#func intergrate_forces():
-#	for i in_range()
+

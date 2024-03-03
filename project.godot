@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/Qustion block/Questioning.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1600
+
 [input]
 
 forward={

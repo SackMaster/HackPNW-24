@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ty51"]
 
 [node name="Questioning" type="Node2D"]
-position = Vector2(173, 760)
+position = Vector2(1002, 537)
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 script = ExtResource("1_6i7l6")
