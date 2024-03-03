@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqknx61gkorr0"]
+[gd_scene load_steps=10 format=3 uid="uid://bqknx61gkorr0"]
 
 [ext_resource type="Script" path="res://Scenes/Yotam Stuff/Iquestions.gd" id="1_7v2pg"]
 [ext_resource type="Script" path="res://Scenes/Yotam Stuff/Ianswers.gd" id="2_ulnwv"]
 [ext_resource type="Script" path="res://Scenes/Yotam Stuff/Ispawner.gd" id="3_yp506"]
+[ext_resource type="Script" path="res://Scenes/Yotam Stuff/IHeaderRB2D.gd" id="4_yuluh"]
+[ext_resource type="FontFile" uid="uid://bldw4cjuv3bxh" path="res://Scenes/Yotam Stuff/georgia-grassetto.ttf" id="5_tx8et"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivst0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fcnng"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_hd64a"]
+default_base_scale = 1.0
+default_font = ExtResource("5_tx8et")
+default_font_size = 36
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5dw4"]
+size = Vector2(83, 926.5)
 
 [node name="Ytrains" type="Node2D"]
 
@@ -14,3 +29,48 @@ script = ExtResource("2_ulnwv")
 
 [node name="Ispawner" type="Node2D" parent="."]
 script = ExtResource("3_yp506")
+
+[node name="IHeaderSB2D" type="StaticBody2D" parent="Ispawner"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("4_yuluh")
+
+[node name="ICollisionShape2D" type="CollisionShape2D" parent="Ispawner/IHeaderSB2D"]
+shape = SubResource("RectangleShape2D_ivst0")
+
+[node name="IPanel" type="Panel" parent="Ispawner/IHeaderSB2D"]
+offset_left = -4.0
+offset_top = -155.0
+offset_right = 1924.0
+offset_bottom = -27.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fcnng")
+
+[node name="ICenterContainer" type="CenterContainer" parent="Ispawner/IHeaderSB2D/IPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ILabel" type="Label" parent="Ispawner/IHeaderSB2D/IPanel/ICenterContainer"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+theme = SubResource("Theme_hd64a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Iwalls" type="StaticBody2D" parent="."]
+position = Vector2(-45, 330)
+collision_layer = 2
+
+[node name="ICollisionShape2D" type="CollisionShape2D" parent="Iwalls"]
+position = Vector2(4, 1)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_g5dw4")
+
+[node name="ICollisionShape2D2" type="CollisionShape2D" parent="Iwalls"]
+position = Vector2(2009, 8)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_g5dw4")

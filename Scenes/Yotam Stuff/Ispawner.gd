@@ -36,25 +36,34 @@ func _ready():
 	#10
 	curAns = [Answer.new("100", true), Answer.new("60", false), Answer.new("10", false), Answer.new("50", false)]
 	queList.push_back(Question.new("How many cents are in a dollar?", curAns))
+	
+	#1s start, 2s move, 1s end
 	_instances()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#(151,850) (1452, 850)
 
 func _instances():
 	if (not queList.is_empty()):
 		var curQue = queList.pick_random()
+		
+		get_node("IHeaderSB2D/IPanel/ICenterContainer/ILabel").text = curQue.problem
+		get_node("IHeaderSB2D")._moveDown()
+		await get_tree().create_timer(2).timeout
+		
 		queList.erase(curQue)
 		curQue.answers.shuffle()
 		
 		print(curQue.problem)
+		
 		for ans in curQue.answers:
-			var xCoor = randi() % 1301 + 151
+			var xCoor = randi() % 1200 + 325
 			var instance = scene.instantiate()
 			instance.get_node("RigidBody2D/White/Label").text = ans.text
-			instance.transform.origin = Vector2(xCoor, 1000)
+			instance.transform.origin = Vector2(xCoor, 1200)
 			add_child(instance)
 			print(ans.text)
 			await get_tree().create_timer(1).timeout
+
+		get_node("IHeaderSB2D")._moveUp()
 		await get_tree().create_timer(2).timeout
 		_instances()
