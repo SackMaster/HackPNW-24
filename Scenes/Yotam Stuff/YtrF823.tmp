@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqknx61gkorr0"]
+[gd_scene load_steps=13 format=3 uid="uid://bqknx61gkorr0"]
 
 [ext_resource type="Script" path="res://Scenes/Yotam Stuff/Iquestions.gd" id="1_7v2pg"]
 [ext_resource type="Script" path="res://Scenes/Yotam Stuff/Ianswers.gd" id="2_ulnwv"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Scenes/Yotam Stuff/IHeaderRB2D.gd" id="4_yuluh"]
 [ext_resource type="FontFile" uid="uid://bldw4cjuv3bxh" path="res://Scenes/Yotam Stuff/georgia-grassetto.ttf" id="5_tx8et"]
 [ext_resource type="Texture2D" uid="uid://dxfdciu66ju8r" path="res://Scenes/1665593786742_8de29228f3ad901cf945835df61a24ba.png" id="6_0ryo5"]
-[ext_resource type="Script" path="res://Scenes/Yotam Stuff/StartScreen.gd" id="7_mqusd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ivst0"]
 
@@ -47,7 +46,6 @@ script = ExtResource("4_yuluh")
 shape = SubResource("RectangleShape2D_ivst0")
 
 [node name="IPanel" type="Panel" parent="Ispawner/IHeaderSB2D"]
-z_index = 10
 offset_left = -4.0
 offset_top = -155.0
 offset_right = 1924.0
@@ -72,8 +70,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LivesDisplay" type="Panel" parent="Ispawner"]
-visible = false
-z_index = 10
 offset_left = 31.0
 offset_top = 988.0
 offset_right = 217.0
@@ -97,8 +93,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PointsDisplay" type="Panel" parent="Ispawner"]
-visible = false
-z_index = 10
 offset_left = 31.0
 offset_top = 905.0
 offset_right = 217.0
@@ -157,25 +151,3 @@ z_index = -1
 position = Vector2(958.5, 555)
 scale = Vector2(2.01771, 1.78611)
 texture = ExtResource("6_0ryo5")
-
-[node name="StartScreen" type="Panel" parent="."]
-offset_left = -8.0
-offset_top = 287.0
-offset_right = 1932.0
-offset_bottom = 786.0
-mouse_filter = 1
-theme_override_styles/panel = SubResource("StyleBoxFlat_d2vsg")
-script = ExtResource("7_mqusd")
-
-[node name="Start" type="Label" parent="StartScreen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_hd64a")
-theme_override_font_sizes/font_size = 180
-text = "Play?"
-horizontal_alignment = 1
-vertical_alignment = 1

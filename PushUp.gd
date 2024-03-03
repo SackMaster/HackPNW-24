@@ -13,13 +13,13 @@ func _ready():
 
 func _mouse_enter():
 	if isCorrect:
-		pChange.emit(1)
-		lChange.emit(0)
-		get_node("White").modulate.g = 255
+		pChange.emit()
+		get_node("White").modulate.r = 0
+		get_node("White").modulate.b = 0
 	if not isCorrect:
-		pChange.emit(0)
-		lChange.emit(-1)
-		queue_free()
+		lChange.emit()
+		get_node("White").modulate.g = 0.4
+		get_node("White").modulate.b = 0.4
 	
 func _mouse_exit():
 	queue_free()

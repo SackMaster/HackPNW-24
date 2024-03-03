@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bc2sa67w21pj5"]
 
 [ext_resource type="Script" path="res://PushUp.gd" id="1_6i7l6"]
-[ext_resource type="Texture2D" uid="uid://cjxh11qfe43cp" path="res://Scenes/Qustion block/White.png" id="2_23mrn"]
+[ext_resource type="Texture2D" uid="uid://x5v1iots2q73" path="res://Scenes/Qustion block/OrangePNG.png" id="2_oyb61"]
 [ext_resource type="FontFile" uid="uid://bldw4cjuv3bxh" path="res://Scenes/Yotam Stuff/georgia-grassetto.ttf" id="3_cdly2"]
 
 [sub_resource type="Theme" id="Theme_xfjlb"]
@@ -21,7 +21,7 @@ gravity_scale = 0.5
 script = ExtResource("1_6i7l6")
 
 [node name="White" type="Sprite2D" parent="RigidBody2D"]
-texture = ExtResource("2_23mrn")
+texture = ExtResource("2_oyb61")
 
 [node name="Label" type="Label" parent="RigidBody2D/White"]
 self_modulate = Color(0, 0, 0, 1)

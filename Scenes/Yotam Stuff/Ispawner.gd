@@ -1,11 +1,23 @@
 extends Node2D
 
+var lives
+var points
+
 var scene = preload("res://Scenes/Qustion block/Questioning.tscn")
 
 var queList = []
 var curAns
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _play():
+	
+	lives = 3
+	points = 0
+	
+	get_node("LivesDisplay").visible = true
+	get_node("PointsDisplay").visible = true
+	
+	get_node("LivesDisplay/LifeLabel").text = "Lives: 3"
+	get_node("PointsDisplay/PointLabel").text = "Score: 0"
 	#1
 	curAns = [Answer.new("9.2", true), Answer.new("-1.2", false), Answer.new("8.2", false), Answer.new("9.8", false)]
 	queList.push_back(Question.new("What is 4 + 5.2?", curAns))
@@ -29,7 +41,7 @@ func _ready():
 	queList.push_back(Question.new("What is 14 * 3?", curAns))
 	#8
 	curAns = [Answer.new("nonagon", true), Answer.new("pentagon", false), Answer.new("octagon", false), Answer.new("decagon", false)]
-	queList.push_back(Question.new("A shape with 9 sides is called??", curAns))
+	queList.push_back(Question.new("A shape with 9 sides is called?", curAns))
 	#9
 	curAns = [Answer.new("7", true), Answer.new("6", false), Answer.new("5", false), Answer.new("8", false)]
 	queList.push_back(Question.new("How many continents are there?", curAns))
@@ -43,11 +55,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _instances():
-	if (not queList.is_empty()):
+	if (not queList.is_empty() && lives > 0):
 		var curQue = queList.pick_random()
 		
 		get_node("IHeaderSB2D/IPanel/ICenterContainer/ILabel").text = curQue.problem
-		get_node("IHeaderSB2D")._moveDown()
+		
+		if lives > 0:
+			get_node("IHeaderSB2D")._moveDown()
+			
 		await get_tree().create_timer(2).timeout
 		
 		queList.erase(curQue)
@@ -56,8 +71,17 @@ func _instances():
 		print(curQue.problem)
 		
 		for ans in curQue.answers:
+			
+			if lives <= 0:
+				lives = 0
+				break
+			
 			var xCoor = randi() % 1200 + 325
 			var instance = scene.instantiate()
+		#	"signal_name", <target_node>, "target_method_name"
+			instance.get_node("RigidBody2D").lChange.connect(_recieve_signalL)
+			instance.get_node("RigidBody2D").pChange.connect(_recieve_signalP)
+			
 			instance.get_node("RigidBody2D/White/Label").text = ans.text
 			instance.get_node("RigidBody2D").isCorrect = ans.isRight
 			instance.transform.origin = Vector2(xCoor, 1200)
@@ -69,3 +93,23 @@ func _instances():
 		get_node("IHeaderSB2D")._moveUp()
 		await get_tree().create_timer(1).timeout
 		_instances()
+	if lives == 0:
+		get_node("LivesDisplay").visible = false
+		get_node("PointsDisplay").visible = false
+		get_node("EndScreen/EndCard").text = "Game Over"
+		get_node("EndScreen").visible = true
+	if queList.is_empty():
+		get_node("LivesDisplay").visible = false
+		get_node("PointsDisplay").visible = false
+		get_node("EndScreen/EndCard").text = "Final Score: " + str(points)
+		get_node("EndScreen").visible = true
+	
+
+func _recieve_signalL():
+	lives -= 1
+	if lives <= 0:
+		lives = 0
+	get_node("LivesDisplay/LifeLabel").text = "Lives: " + str(lives)
+func _recieve_signalP():
+	points += 1
+	get_node("PointsDisplay/PointLabel").text = "Score: " + str(points)
