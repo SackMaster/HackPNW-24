@@ -4,21 +4,22 @@
 [ext_resource type="Script" path="res://Scenes/Issac stuff/YMouseScript.gd" id="2_5hyw4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ntmff"]
+size = Vector2(19.5505, 19.6492)
 
 [node name="Ymouse" type="Node2D"]
 position = Vector2(0, 4)
 
 [node name="YMouse" type="RigidBody2D" parent="."]
-position = Vector2(398, 257)
+position = Vector2(395, 234)
 rotation = -6.28319
-scale = Vector2(1, 1.36)
 script = ExtResource("2_5hyw4")
 
 [node name="YMouseObject" type="Sprite2D" parent="YMouse"]
 position = Vector2(1, 0)
-scale = Vector2(0.319999, 0.294117)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_kcjvd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YMouse"]
-scale = Vector2(3.56, 3.35294)
+position = Vector2(0.80011, 0.588181)
+scale = Vector2(0.1, 0.1)
 shape = SubResource("RectangleShape2D_ntmff")

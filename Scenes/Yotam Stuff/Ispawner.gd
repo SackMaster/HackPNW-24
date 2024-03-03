@@ -64,6 +64,7 @@ func _instances():
 			print(ans.text)
 			await get_tree().create_timer(1).timeout
 
+		await get_tree().create_timer(1).timeout
 		get_node("IHeaderSB2D")._moveUp()
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(1).timeout
 		_instances()
