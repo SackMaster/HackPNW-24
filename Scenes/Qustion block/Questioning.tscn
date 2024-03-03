@@ -26,3 +26,5 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 scale = Vector2(14.72, 8.68)
 shape = SubResource("RectangleShape2D_8ty51")
+
+[node name="Node2D" type="Node2D" parent="."]
