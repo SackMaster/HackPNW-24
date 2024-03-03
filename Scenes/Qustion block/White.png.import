@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vj1c4rwf5072"
-path="res://.godot/imported/white.jpg-b5ec5bdf0efe4e6b0aa7aeedc83d09a2.ctex"
+uid="uid://cjxh11qfe43cp"
+path="res://.godot/imported/White.png-0651fb20e2402d81d58abc1975dfc43d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Qustion block/white.jpg"
-dest_files=["res://.godot/imported/white.jpg-b5ec5bdf0efe4e6b0aa7aeedc83d09a2.ctex"]
+source_file="res://Scenes/Qustion block/White.png"
+dest_files=["res://.godot/imported/White.png-0651fb20e2402d81d58abc1975dfc43d.ctex"]
 
 [params]
 
